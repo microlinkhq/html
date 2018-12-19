@@ -10,6 +10,9 @@ const gotOptions = { headers: { accept: '*/*', 'user-agent': uaString } }
 const puppeteerOpts = { uaString }
 
 const html = async (req, res, { prerender }) => {
+  const targetUrl = req.params['0']
+  if (!targetUrl) return res.success(help)
+
   const { html } = await getHTML(req.params['0'], {
     prerender,
     gotOptions,
@@ -36,7 +39,6 @@ module.exports = async (app, express) => {
   )
   app.get('/fetch/*', async (req, res) => html(req, res, { prerender: false }))
   app.get('/*', async (req, res) => html(req, res, { prerender: 'auto' }))
-  app.get('/', async (req, res) => res.success(help))
 
   return app
 }

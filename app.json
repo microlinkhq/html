@@ -1,0 +1,11 @@
+{
+  "name": "html-microservice",
+  "description": "Get HTML from any URL.",
+  "repository": "https://github.com/Kikobeats/html-microservice",
+  "keywords": [
+    "microservice",
+    "html",
+    "puppeteer",
+    "browserless"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "name": "html-microservice",
+  "description": "Get HTML from any URL.",
+  "homepage": "https://github.com/Kikobeats/html-microservice",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "author": {
+    "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
+    "url": "https://github.com/Kikobeats"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikobeats/html-microservice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kikobeats/html-microservice/issues"
+  },
+  "keywords": [
+    "browserless",
+    "html",
+    "microservice",
+    "puppeteer"
+  ],
+  "dependencies": {
+    "browserless": "~4.2.0",
+    "compression": "~1.7.0",
+    "cors": "~2.8.4",
+    "express": "~4.16.2",
+    "helmet": "~3.15.0",
+    "html-get": "~2.0.3",
+    "jsendp": "~2.0.0",
+    "lodash": "~4.17.4",
+    "morgan": "~1.9.0",
+    "puppeteer": "~1.11.0",
+    "ua-string": "~2.0.0"
+  },
+  "devDependencies": {
+    "coveralls": "latest",
+    "git-dirty": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "prettier-standard": "latest",
+    "standard": "11",
+    "standard-markdown": "latest",
+    "svr": "latest"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "dev": "svr",
+    "lint": "standard-markdown README.md && standard",
+    "prelint": "npm run pretty",
+    "pretest": "npm run lint",
+    "pretty": "prettier-standard {core,test,bin}/**/*.js",
+    "start": "node src/server.js",
+    "test": "exit 0"
+  },
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-standard",
+      "git add"
+    ]
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}

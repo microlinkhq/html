@@ -1,6 +1,7 @@
 'use strict'
 
 const uaString = require('ua-string')
+const prettyMs = require('pretty-ms')
 const getHTML = require('html-get')
 const help = require('./help')
 
@@ -13,13 +14,21 @@ const html = async (req, res, { prerender }) => {
   const targetUrl = req.params['0']
   if (!targetUrl) return res.success(help)
 
-  const { html } = await getHTML(req.params['0'], {
+  const { html, url, stats } = await getHTML(req.params['0'], {
     prerender,
     gotOptions,
     puppeteerOpts
   })
 
-  return res.set('Content-Type', 'text/plain').send(html)
+  return res
+    .set({
+      'Content-Type': 'text/plain',
+      'x-url': url,
+      'x-mode': stats.mode,
+      'x-time': stats.timing,
+      'x-time-pretty': prettyMs(stats.timing)
+    })
+    .send(html)
 }
 
 module.exports = async (app, express) => {

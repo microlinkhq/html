@@ -1,7 +1,7 @@
 {
   "name": "html-microservice",
   "description": "Get HTML from any URL.",
-  "homepage": "https://github.com/Kikobeats/html-microservice",
+  "homepage": "https://github.com/microlinkhq/html",
   "version": "0.0.0",
   "main": "src/index.js",
   "author": {
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kikobeats/html-microservice.git"
+    "url": "git+https://github.com/microlinkhq/html.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/html-microservice/issues"
+    "url": "https://github.com/microlinkhq/html/issues"
   },
   "keywords": [
     "browserless",

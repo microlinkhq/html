@@ -1,7 +1,7 @@
 {
   "name": "html-microservice",
   "description": "Get HTML from any URL.",
-  "repository": "https://github.com/Kikobeats/html-microservice",
+  "repository": "https://github.com/microlinkhq/html",
   "keywords": [
     "microservice",
     "html",

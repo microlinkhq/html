@@ -1,12 +1,8 @@
-# html-microservice
-
-[![Build Status](https://img.shields.io/travis/Kikobeats/html-microservice/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/html-microservice)
-[![Dependency status](https://img.shields.io/david/Kikobeats/html-microservice.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-microservice)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/html-microservice.svg?style=flat-square)](https://david-dm.org/Kikobeats/html-microservice#info=devDependencies)
+<h1 align="center">
+  <img src="https://cdn.microlink.io/banner/html.png" alt="microlink logo">
+</h1>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-> Get HTML from any URL.
 
 ## Related
 
@@ -15,4 +11,7 @@
 
 ## License
 
-MIT © [Kiko Beats](https://github.com/Kikobeats).
+**microlink** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/html/blob/master/LICENSE.md) License.<br>
+Authored and maintained by Kiko Beats with help from [contributors](https://github.com/microlinkhq/html/contributors).
+
+> [microlink.io](https://microlink.io) · GitHub [@MicrolinkHQ](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)

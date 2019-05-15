@@ -8,7 +8,7 @@ const help = require('./help')
 const isProduction = process.env.NODE_ENV === 'production'
 
 const gotOptions = { headers: { accept: '*/*', 'user-agent': uaString } }
-const puppeteerOpts = { uaString }
+const puppeteerOpts = { userAgent: uaString }
 
 const html = async (req, res, { prerender }) => {
   const targetUrl = req.params['0']

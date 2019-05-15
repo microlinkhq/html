@@ -33,10 +33,11 @@
     "lodash": "~4.17.11",
     "morgan": "~1.9.1",
     "pretty-ms": "~5.0.0",
-    "puppeteer": "~1.15.0",
+    "puppeteer-core": "~1.16.0",
     "ua-string": "~3.0.0"
   },
   "devDependencies": {
+    "puppeteer": "latest",
     "coveralls": "latest",
     "git-dirty": "latest",
     "husky": "latest",

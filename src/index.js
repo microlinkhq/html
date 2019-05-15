@@ -14,7 +14,7 @@ const html = async (req, res, { prerender }) => {
   const targetUrl = req.params['0']
   if (!targetUrl) return res.success(help)
 
-  const { html, url, stats } = await getHTML(req.params['0'], {
+  const { html, url, stats } = await getHTML(targetUrl, {
     prerender,
     gotOptions,
     puppeteerOpts

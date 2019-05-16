@@ -56,6 +56,7 @@
     "src"
   ],
   "scripts": {
+    "heroku-prebuild": "npx untracked > .slugignore",
     "clean": "rm -rf node_modules",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "dev": "svr",

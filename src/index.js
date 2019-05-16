@@ -42,10 +42,8 @@ module.exports = async (app, express) => {
     .disable('x-powered-by')
 
   app.get('/robots.txt', (req, res) => res.status(204).send())
-  app.get('/favicon.txt', (req, res) => res.status(204).send())
-  app.get('/prerender/*', async (req, res) =>
-    html(req, res, { prerender: true })
-  )
+  app.get('/favicon.ico', (req, res) => res.status(204).send())
+  app.get('/prerender/*', async (req, res) => html(req, res, { prerender: true }))
   app.get('/fetch/*', async (req, res) => html(req, res, { prerender: false }))
   app.get('/*', async (req, res) => html(req, res, { prerender: 'auto' }))
 

@@ -23,17 +23,19 @@
     "puppeteer"
   ],
   "dependencies": {
-    "browserless": "~5.3.2",
+    "beauty-error": "~1.1.4",
+    "browserless": "~5.4.0",
     "compression": "~1.7.4",
     "cors": "~2.8.5",
     "express": "~4.16.4",
     "helmet": "~3.18.0",
-    "html-get": "~2.0.18",
+    "html-get": "~2.1.1",
     "jsendp": "~2.1.0",
     "lodash": "~4.17.11",
     "morgan": "~1.9.1",
     "pretty-ms": "~5.0.0",
     "puppeteer-core": "~1.16.0",
+    "tough-cookie": "~3.0.1",
     "ua-string": "~3.0.0"
   },
   "devDependencies": {

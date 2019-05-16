@@ -1,6 +1,6 @@
 'use strict'
 
-const isProduction = process.env.NODE_ENV === 'production'
+const TWENTY_MIN_MS = 1000 * 60 * 20
 
 const HEADERS = {
   connection: 'keep-alive',
@@ -12,4 +12,8 @@ const HEADERS = {
   pragma: 'no-cache'
 }
 
-module.exports = { HEADERS, isProduction }
+module.exports = {
+  HEADERS,
+  CACHE_TTL: process.env.CACHE_TTL || TWENTY_MIN_MS,
+  isProduction: process.env.NODE_ENV === 'production'
+}

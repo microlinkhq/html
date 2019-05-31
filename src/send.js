@@ -2,6 +2,7 @@
 
 const beautyError = require('beauty-error')
 const prettyMs = require('pretty-ms')
+const pretty = require('pretty')
 
 const { isProduction } = require('./constants')
 const messages = require('./messages')
@@ -24,7 +25,7 @@ const sendHtml = (res, { html, url, stats }) => {
       'x-time': stats.timing,
       'x-time-pretty': prettyMs(stats.timing)
     })
-    .send(html)
+    .send(pretty(html))
 }
 
 module.exports = (res, { err, invalidUrl, showHelp, html, url, stats }) => {

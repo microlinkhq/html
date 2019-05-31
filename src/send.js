@@ -25,7 +25,7 @@ const sendHtml = (res, { html, url, stats }) => {
       'x-time': stats.timing,
       'x-time-pretty': prettyMs(stats.timing)
     })
-    .send(pretty(html))
+    .send(pretty(html, { ocd: true }))
 }
 
 module.exports = (res, { err, invalidUrl, showHelp, html, url, stats }) => {

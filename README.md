@@ -10,6 +10,7 @@
 
 - [html-get](https://github.com/Kikobeats/html-get) – Get the HTML from any website, using prerendering when is necessary.
 - [browserless](https://github.com/microlinkhq/browserless) – Chrome Headless API made easy.
+- [Emojione Color Font](https://eosrei.github.io/emojione-color-font/full-demo.html) – For testing emoji.
 
 ## License
 

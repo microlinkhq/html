@@ -39,7 +39,7 @@
     "morgan": "~1.9.1",
     "pretty": "~2.0.0",
     "pretty-ms": "~5.0.0",
-    "puppeteer-core": "~1.18.1",
+    "puppeteer-core": "~1.19.0",
     "tough-cookie": "~3.0.1",
     "ua-string": "~3.0.0"
   },

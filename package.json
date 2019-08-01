@@ -3,7 +3,7 @@
   "description": "Get HTML from any URL.",
   "homepage": "https://github.com/microlinkhq/html",
   "version": "0.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
@@ -26,66 +26,86 @@
     "beauty-error": "~1.2.2",
     "browserless": "~5.8.3",
     "cacheable-response": "~1.6.12",
-    "compression": "~1.7.4",
-    "cors": "~2.8.5",
     "debug-logfmt": "~1.0.2",
-    "express": "~4.17.1",
     "helmet": "~3.20.0",
     "html-get": "~2.2.9",
+    "http-status": "~1.3.2",
     "is-url-http": "~1.2.0",
-    "jsendp": "~2.1.0",
-    "lodash": "~4.17.11",
     "luminati-tunnel": "~1.3.0",
-    "morgan": "~1.9.1",
+    "micro": "~9.3.4",
+    "micro-dev": "~3.0.0",
+    "micro-route": "~2.5.0",
+    "prepend-http": "~3.0.1",
     "pretty": "~2.0.0",
     "pretty-ms": "~5.0.0",
     "puppeteer-core": "~1.19.0",
+    "tldts": "~5.3.2",
     "tough-cookie": "~3.0.1",
     "ua-string": "~3.0.0"
   },
   "devDependencies": {
-    "puppeteer": "latest",
-    "coveralls": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "conventional-github-releaser": "latest",
+    "finepack": "latest",
+    "git-authors-cli": "latest",
     "git-dirty": "latest",
     "husky": "latest",
     "lint-staged": "latest",
+    "micro-dev": "latest",
+    "npm-check-updates": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "svr": "latest"
+    "standard-version": "latest",
+    "untracked": "latest"
   },
   "engines": {
-    "node": ">= 8"
+    "node": ">= 10"
   },
   "files": [
+    "index.js",
     "src"
   ],
   "scripts": {
-    "heroku-prebuild": "npx untracked > .slugignore",
+    "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "dev": "svr",
+    "dev": "NODE_ENV=development micro-dev",
+    "heroku-prebuild": "untracked > .slugignore",
     "lint": "standard-markdown README.md && standard",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard {core,test,bin}/**/*.js",
-    "start": "node src/server.js",
-    "test": "exit 0"
+    "release": "standard-version -a",
+    "release:github": "conventional-github-releaser -p angular",
+    "release:tags": "git push --follow-tags origin HEAD:master",
+    "start": "DEBUG=html-microservice* NODE_ENV=production micro",
+    "test": "exit 0",
+    "update": "ncu -u",
+    "update:check": "ncu -- --error-level 2"
   },
   "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
+    "package.json": [
+      "finepack",
+      "git add"
+    ],
     "*.js": [
       "prettier-standard",
       "git add"
-    ]
-  },
-  "standard": {
-    "env": [
-      "mocha"
+    ],
+    "*.md": [
+      "standard-markdown",
+      "git add"
     ]
   }
 }

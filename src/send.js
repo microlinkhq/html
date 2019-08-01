@@ -1,36 +1,36 @@
 'use strict'
 
 const beautyError = require('beauty-error')
+const HTTPStatus = require('http-status')
 const prettyMs = require('pretty-ms')
+const { send } = require('micro')
 const pretty = require('pretty')
 
 const { isProduction } = require('./constants')
 const messages = require('./messages')
 
-const sendJSON = (res, status, json) => res[status](json)
+const createSend = (status, code) => async (res, props) => send(res, code, { ...props, status })
 
-const sendError = (res, { err }) => {
-  if (err) {
-    if (!isProduction) console.log(beautyError(err))
-    return sendJSON(res, 'error')
-  }
-}
+const sendError = createSend('error', HTTPStatus.INTERNAL_SERVER_ERROR)
+
+const sendSuccess = createSend('success', HTTPStatus.OK)
+const sendFail = createSend('fail', HTTPStatus.BAD_REQUEST)
 
 const sendHtml = (res, { html, url, stats }) => {
-  return res
-    .set({
-      'Content-Type': 'text/plain',
-      'x-url': url,
-      'x-mode': stats.mode,
-      'x-time': stats.timing,
-      'x-time-pretty': prettyMs(stats.timing)
-    })
-    .send(pretty(html, { ocd: true }))
+  res.setHeader('content-type', 'text/plain')
+  res.setHeader('x-url', url)
+  res.setHeader('x-fetch-mode', stats.mode)
+  res.setHeader('x-fetch-time', prettyMs(stats.timing))
+  send(res, HTTPStatus.OK, pretty(html, { ocd: true }))
 }
 
 module.exports = (res, { err, invalidUrl, showHelp, html, url, stats }) => {
-  if (err) return sendError(res, { err })
-  if (showHelp) return sendJSON(res, 'success', messages.help())
-  if (invalidUrl) return sendJSON(res, 'fail', messages.invalidUrl(url))
+  if (err) {
+    if (!isProduction) console.log(beautyError(err))
+    return sendError(res)
+  }
+
+  if (showHelp) return sendSuccess(res, messages.help())
+  if (invalidUrl) return sendFail(res, messages.invalidUrl(url))
   return sendHtml(res, { html, url, stats })
 }

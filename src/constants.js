@@ -13,6 +13,7 @@ const HEADERS = {
 }
 
 module.exports = {
+  ...process.env,
   HEADERS,
   CACHE_TTL: process.env.CACHE_TTL || TWENTY_MIN_MS,
   isProduction: process.env.NODE_ENV === 'production'

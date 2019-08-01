@@ -1,19 +1,21 @@
 'use strict'
 
 const debug = require('debug-logfmt')('html-microservice:html')
-const isUrl = require('is-url-http')
+const { parseUri: parseProxyUri } = require('luminati-tunnel')
+const prependHttp = require('prepend-http')
 const uaString = require('ua-string')
+const isUrl = require('is-url-http')
 const getHTML = require('html-get')
 
 const { HEADERS } = require('./constants')
 const cookies = require('./cookies')
-const { parseUri: parseProxyUri } = require('luminati-tunnel')
 
 module.exports = async (req, { prerender }) => {
   try {
-    const targetUrl = req.params['0']
+    const { _: input } = req.params
+    if (!input) return { showHelp: true }
 
-    if (!targetUrl) return { showHelp: true }
+    const targetUrl = prependHttp(input)
     if (!isUrl(targetUrl)) return { url: targetUrl, invalidUrl: true }
 
     const agent = req.query.proxy ? parseProxyUri(req.query.proxy) : undefined

@@ -1,7 +1,7 @@
 language: node_js
+
 node_js:
-  - "node"
-after_success: npm run coveralls
+  - "lts/*"
 
 addons:
   apt:
@@ -17,3 +17,25 @@ env:
   - CXX=g++-4.9
 
 sudo: false
+
+stages:
+  - Test
+  - name: Release
+    if: branch = master AND commit_message !~ /(release|no-release)/
+
+jobs:
+  include:
+    - stage: Release
+      node_js: lts/*
+      install: npm install --no-package-lock
+      before_deploy:
+        - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}
+        - git config user.name ${GITHUB_USER:-"Travis CI"}
+        - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+        - git checkout master
+      deploy:
+        skip_cleanup: true
+        provider: script
+        script: npm run release
+        on:
+          branch: master

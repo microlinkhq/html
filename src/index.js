@@ -9,14 +9,13 @@ const { CACHE_TTL } = require('./constants')
 const html = require('./html')
 const send = require('./send')
 
-const applyMiddleware = (service, middlewares = []) => {
-  return middlewares
+const applyMiddleware = (service, middlewares = []) =>
+  middlewares
     .filter(Boolean)
     .reverse()
     .reduce((fn, nextMiddleware) => nextMiddleware(fn), service)
-}
 
-const decorate = fn => handler => (req, res, ...rest) => {
+const fromExpress = fn => handler => (req, res, ...rest) => {
   const next = () => handler(req, res, ...rest)
   return fn(req, res, next)
 }
@@ -29,6 +28,6 @@ const ssrCache = cacheableResponse({
 
 const fromCache = (req, res, opts) => ssrCache({ req, res, ...opts })
 
-const middlewares = [decorate(helmet)]
+const middlewares = [fromExpress(helmet)]
 
 module.exports = applyMiddleware(fromCache, middlewares)

@@ -1,8 +1,4 @@
-<h1 align="center">
-  <img src="https://cdn.microlink.io/banner/html.png" alt="microlink logo">
-</h1>
-
-<br>
+![](https://cdn.microlink.io/banner/html.png)
 
 [![Deploy to Now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/microlinkhq/html)
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)

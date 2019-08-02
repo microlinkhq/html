@@ -1,5 +1,7 @@
 ![](https://cdn.microlink.io/banner/html.png)
 
+> Get HTML from any URL.
+
 [![Deploy to Now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/microlinkhq/html)
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 

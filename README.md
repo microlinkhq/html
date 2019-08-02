@@ -1,4 +1,6 @@
-![](https://cdn.microlink.io/banner/html.png)
+<div align="center">
+  <img src="https://cdn.microlink.io/banner/html.png" alt="microlink html">
+</div>
 
 > Get HTML from any URL.
 

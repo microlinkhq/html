@@ -5,7 +5,6 @@ const TWENTY_MIN_MS = 1000 * 60 * 20
 const HEADERS = {
   connection: 'keep-alive',
   'accept-encoding': 'gzip, deflate',
-  'accept-language': 'en-us',
   'cache-control': 'no-cache',
   'upgrade-insecure-requests': '1',
   accept: '*/*',

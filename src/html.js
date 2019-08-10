@@ -15,6 +15,7 @@ module.exports = async (req, { prerender }) => {
     const { _: input } = req.params
     if (!input) return { showHelp: true }
 
+    const { lang = 'en-us' } = req.query
     const targetUrl = prependHttp(input)
     if (!isUrl(targetUrl)) return { url: targetUrl, invalidUrl: true }
 
@@ -28,6 +29,7 @@ module.exports = async (req, { prerender }) => {
           ...HEADERS,
           agent,
           'user-agent': uaString,
+          'accept-language': lang,
           cookie: cookies.toString(targetUrl)
         }
       },

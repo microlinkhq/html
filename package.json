@@ -3,7 +3,7 @@
   "description": "Get HTML from any URL.",
   "homepage": "https://github.com/microlinkhq/html",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
@@ -64,7 +64,6 @@
     "node": ">= 10"
   },
   "files": [
-    "index.js",
     "src"
   ],
   "scripts": {

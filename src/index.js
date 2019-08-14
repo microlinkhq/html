@@ -1,33 +1,18 @@
 'use strict'
 
-const { promisify } = require('util')
+const dispatch = require('micro-route/dispatch')
+const { send } = require('micro')
 
-const cacheableResponse = require('cacheable-response')
-const helmet = promisify(require('helmet')())
+const html = require('./middlewares')
 
-const { CACHE_TTL } = require('./constants')
-const html = require('./html')
-const send = require('./send')
-
-const applyMiddleware = (service, middlewares = []) =>
-  middlewares
-    .filter(Boolean)
-    .reverse()
-    .reduce((fn, nextMiddleware) => nextMiddleware(fn), service)
-
-const fromExpress = fn => handler => (req, res, ...rest) => {
-  const next = () => handler(req, res, ...rest)
-  return fn(req, res, next)
+const decorate = opts => (req, res, { params = {}, query = {} } = {}) => {
+  req.params = params
+  req.query = query
+  return html(req, res, opts)
 }
 
-const ssrCache = cacheableResponse({
-  ttl: CACHE_TTL,
-  get: async ({ req, res, ...props }) => ({ data: await html(req, props) }),
-  send: ({ res, data }) => send(res, data)
-})
-
-const fromCache = (req, res, opts) => ssrCache({ req, res, ...opts })
-
-const middlewares = [fromExpress(helmet)]
-
-module.exports = applyMiddleware(fromCache, middlewares)
+module.exports = dispatch()
+  .dispatch('/prerender/*', 'GET', decorate({ prerender: true }))
+  .dispatch('/fetch/*', 'GET', decorate({ prerender: false }))
+  .dispatch('/*', 'GET', decorate({ prerender: 'auto' }))
+  .otherwise((req, res) => send(res, 403, null))

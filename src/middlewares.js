@@ -22,7 +22,7 @@ const fromExpress = fn => handler => (req, res, ...rest) => {
 
 const ssrCache = cacheableResponse({
   ttl: CACHE_TTL,
-  get: async ({ req, res, ...props }) => ({ data: await html(req, props) }),
+  get: async ({ req }) => ({ data: await html(req) }),
   send: ({ res, data }) => send(res, data)
 })
 

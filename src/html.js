@@ -10,13 +10,11 @@ const getHTML = require('html-get')
 const { HEADERS } = require('./constants')
 const cookies = require('./cookies')
 
-module.exports = async (req, { prerender }) => {
+module.exports = async req => {
   try {
-    const { _: input } = req.params
-    if (!input) return { showHelp: true }
-
-    const { lang = 'en-us' } = req.query
-    const targetUrl = prependHttp(input)
+    const { url, prerender, lang = 'en-us' } = req.query
+    if (!url) return { showHelp: true }
+    const targetUrl = prependHttp(url)
     if (!isUrl(targetUrl)) return { url: targetUrl, invalidUrl: true }
 
     const agent = req.query.proxy ? parseProxyUri(req.query.proxy) : undefined

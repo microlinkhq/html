@@ -3,11 +3,10 @@
 const pkg = require('../package.json')
 
 const help = () => ({
-  data: {
-    '/': 'Show this help',
-    '/:url': 'Get HTML using `auto` mode.',
-    '/prerender/:url': 'Get HTML using `prerender` mode.',
-    '/fetch/:url': 'Get HTML `fetch` mode.'
+  query: {
+    url: 'Target URL for getting HTML [required].',
+    prerender: 'Enable `prerender` mode [default=auto].',
+    lang: "Setup the preferred language for fetching the content [default='en-us']."
   },
   more: pkg.homepage,
   message: pkg.description

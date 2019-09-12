@@ -25,7 +25,7 @@
   "dependencies": {
     "beauty-error": "~1.2.2",
     "browserless": "~5.11.2",
-    "cacheable-response": "~1.6.12",
+    "cacheable-response": "~1.7.2",
     "debug-logfmt": "~1.0.2",
     "helmet": "~3.21.0",
     "html-get": "~2.2.14",

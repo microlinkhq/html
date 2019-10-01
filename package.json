@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "beauty-error": "~1.2.2",
-    "browserless": "~5.14.9",
+    "browserless": "~5.14.10",
     "cacheable-response": "~1.7.3",
     "debug-logfmt": "~1.0.3",
     "helmet": "~3.21.1",
@@ -55,6 +55,7 @@
     "micro-dev": "latest",
     "npm-check-updates": "latest",
     "prettier-standard": "latest",
+    "puppeteer": "~1.20.0",
     "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest",

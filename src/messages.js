@@ -6,6 +6,7 @@ const help = () => ({
   query: {
     url: 'Target URL for getting HTML [required].',
     prerender: 'Enable `prerender` mode [default=auto].',
+    proxy: 'Use the proxy URI provided during the request',
     '...headers': 'Any other query param will be attached as extra HTTP header.'
   },
   more: pkg.homepage,

@@ -33,6 +33,7 @@
     "http-status": "~1.3.2",
     "is-url-http": "~1.2.0",
     "lodash": "~4.17.15",
+    "luminati-tunnel": "~1.3.0",
     "mem": "~5.1.1",
     "micro": "~9.3.4",
     "micro-route": "~2.5.0",

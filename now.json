@@ -11,6 +11,9 @@
       "use": "@now/node"
     }
   ],
+  "includeFiles": [
+    "src"
+  ],
   "routes": [
     {
       "src": "/robots.txt",

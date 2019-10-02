@@ -62,7 +62,7 @@
     "untracked": "latest"
   },
   "engines": {
-    "node": "8"
+    "node": "8.10"
   },
   "files": [
     "src"

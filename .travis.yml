@@ -24,10 +24,6 @@ jobs:
       deploy:
         skip_cleanup: true
         provider: script
-        script:
-          - npm run release
-          - curl -fsL https://up.apex.sh/install | sh
-          - deploy production
-          - npx lambda-prune
+        script: npm run release && curl -fsL https://up.apex.sh/install | sh && deploy production && npx lambda-prune
         on:
           branch: master

@@ -1,20 +1,7 @@
 language: node_js
 
 node_js:
-  - "lts/*"
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - libcairo2-dev
-      - libjpeg8-dev
-      - libpango1.0-dev
-      - libgif-dev
-      - g++-4.9
-env:
-  - CXX=g++-4.9
+  - "8.10"
 
 sudo: false
 
@@ -36,6 +23,7 @@ jobs:
       deploy:
         skip_cleanup: true
         provider: script
-        script: npm run release
+        script:
+          - npm run release
         on:
           branch: master

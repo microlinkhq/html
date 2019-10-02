@@ -2,7 +2,6 @@
 
 const beautyError = require('beauty-error')
 const HTTPStatus = require('http-status')
-const prettyMs = require('pretty-ms')
 const { send } = require('micro')
 const pretty = require('pretty')
 
@@ -20,7 +19,7 @@ const sendHtml = (res, { html, url, stats }) => {
   res.setHeader('content-type', 'text/plain')
   res.setHeader('x-url', url)
   res.setHeader('x-fetch-mode', stats.mode)
-  res.setHeader('x-fetch-time', prettyMs(stats.timing))
+  res.setHeader('x-fetch-time', `${stats.timing}ms`)
   send(res, HTTPStatus.OK, pretty(html, { ocd: true }))
 }
 

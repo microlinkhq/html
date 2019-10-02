@@ -1,0 +1,25 @@
+{
+  "name": "microlink-html",
+  "hooks": {
+    "build": [
+      "untracked > .upignore"
+    ],
+    "clean": [
+      "rm -f .upignore"
+    ]
+  },
+  "proxy": {
+    "command": "./node_modules/.bin/micro -l tcp://0.0.0.0:$PORT"
+  },
+  "environment": {
+    "NODE_ENV": "production",
+    "TZ": "UTC"
+  },
+  "lambda": {
+    "runtime": "nodejs8.10",
+    "accelerate": true
+  },
+  "regions": [
+    "us-east-1"
+  ]
+}

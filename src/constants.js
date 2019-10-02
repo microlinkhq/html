@@ -1,19 +1,8 @@
 'use strict'
 
-const TWENTY_MIN_MS = 1000 * 60 * 20
+const { NODE_ENV = 'development', LAMBDA_TASK_ROOT } = process.env
 
-const HEADERS = {
-  connection: 'keep-alive',
-  'accept-encoding': 'gzip, deflate',
-  'cache-control': 'no-cache',
-  'upgrade-insecure-requests': '1',
-  accept: '*/*',
-  pragma: 'no-cache'
-}
+const isLambda = !!LAMBDA_TASK_ROOT
+const isProduction = NODE_ENV === 'production'
 
-module.exports = {
-  ...process.env,
-  HEADERS,
-  CACHE_TTL: process.env.CACHE_TTL || TWENTY_MIN_MS,
-  isProduction: process.env.NODE_ENV === 'production'
-}
+module.exports = { ...process.env, NODE_ENV, isProduction, isLambda }

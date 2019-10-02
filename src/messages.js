@@ -6,7 +6,7 @@ const help = () => ({
   query: {
     url: 'Target URL for getting HTML [required].',
     prerender: 'Enable `prerender` mode [default=auto].',
-    lang: "Setup the preferred language for fetching the content [default='en-us']."
+    '...headers': 'Any other query param will be attached as extra HTTP header.'
   },
   more: pkg.homepage,
   message: pkg.description
@@ -14,7 +14,7 @@ const help = () => ({
 
 const invalidUrl = url => ({
   data: {
-    url: `The URL \`${url}\` is not valid. Ensure it has protocol (http or https) and hostname.`
+    url: `The URL \`${url}\` is not valid. Ensure it has protocol, hostname and is reachable.`
   },
   message: 'The request has been not processed. See the errors above to know why.',
   more: pkg.homepage

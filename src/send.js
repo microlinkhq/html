@@ -27,7 +27,7 @@ const sendHtml = (res, { html, url, stats }) => {
 module.exports = (res, { err, invalidUrl, showHelp, html, url, stats }) => {
   if (err) {
     if (!isProduction) console.log(beautyError(err))
-    return sendError(res)
+    return sendError(res, { more: err.message || err })
   }
 
   if (showHelp) return sendSuccess(res, messages.help())

@@ -5,7 +5,6 @@ const { promisify } = require('util')
 const cacheableResponse = require('cacheable-response')
 const helmet = promisify(require('helmet')())
 
-const { CACHE_TTL } = require('./constants')
 const html = require('./html')
 const send = require('./send')
 
@@ -21,7 +20,6 @@ const fromExpress = fn => handler => (req, res, ...rest) => {
 }
 
 const ssrCache = cacheableResponse({
-  ttl: CACHE_TTL,
   get: async ({ req }) => ({ data: await html(req) }),
   send: ({ res, data }) => send(res, data)
 })

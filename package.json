@@ -54,7 +54,7 @@
     "micro-dev": "latest",
     "npm-check-updates": "latest",
     "prettier-standard": "latest",
-    "puppeteer": "~1.20.0",
+    "puppeteer": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest",

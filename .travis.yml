@@ -16,14 +16,21 @@ jobs:
   include:
     - stage: Release
       node_js: lts/*
-      before_deploy:
+      before_install:
+        - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
+      install:
+        - sh install.sh -b ./bin
+        - ./bin/up version
+      before_script:
         - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}
         - git config user.name ${GITHUB_USER:-"Travis CI"}
         - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
         - git checkout master
+      script:
+        - npm run release
       deploy:
-        skip_cleanup: true
         provider: script
-        script: npm run release && curl -fsL https://up.apex.sh/install | sh && deploy production && npx lambda-prune
-        on:
-          branch: master
+        script: ./bin/up
+        skip_cleanup: true
+      after_deploy:
+        - npx lambda-prune

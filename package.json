@@ -70,7 +70,6 @@
     "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
     "dev": "NODE_ENV=development micro-dev",
-    "heroku-prebuild": "npx untracked > .slugignore",
     "lint": "standard-markdown README.md && standard",
     "pretest": "npm run lint",
     "release": "standard-version -a",

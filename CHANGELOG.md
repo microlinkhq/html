@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/microlinkhq/html/compare/v0.0.1...v0.0.2) (2019-10-02)
+
+
+### Bug Fixes
+
+* remove ci-publish ([1113e32](https://github.com/microlinkhq/html/commit/1113e32))
+
 ### 0.0.1 (2019-10-02)
 
 

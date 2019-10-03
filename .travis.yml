@@ -10,7 +10,7 @@ stages:
 
 install:
   - npm config set package-lock false
-  - npm install
+  - npm install --arch=x64 --platform=linux --target=8.10.0
   - npm ls
 
 jobs:

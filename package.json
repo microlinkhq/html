@@ -40,6 +40,7 @@
     "prepend-http": "~3.0.1",
     "pretty": "~2.0.0",
     "puppeteer-core": "~1.20.0",
+    "sharp": "^0.23.1",
     "tough-cookie": "~3.0.1",
     "ua-string": "~3.0.0"
   },

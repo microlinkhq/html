@@ -51,6 +51,7 @@
     "git-authors-cli": "latest",
     "git-dirty": "latest",
     "husky": "latest",
+    "lambda-prune": "latest",
     "lint-staged": "latest",
     "micro-dev": "latest",
     "npm-check-updates": "latest",
@@ -58,7 +59,8 @@
     "puppeteer": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest"
+    "standard-version": "latest",
+    "untracked": "latest"
   },
   "engines": {
     "node": "8.10"
@@ -106,6 +108,12 @@
     "*.md": [
       "standard-markdown",
       "git add"
+    ]
+  },
+  "untracked": {
+    "blacklist": [
+      "bin",
+      "install.sh"
     ]
   }
 }

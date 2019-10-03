@@ -16,11 +16,6 @@ jobs:
   include:
     - stage: Release
       node_js: lts/*
-      before_install:
-        - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
-      install:
-        - sh install.sh -b ./bin
-        - ./bin/up version
       before_script:
         - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}
         - git config user.name ${GITHUB_USER:-"Travis CI"}
@@ -29,10 +24,13 @@ jobs:
       script:
         - npm run release
       before_deploy:
-        - npx untracked | tee .upignore
+        - untracked | tee .upignore
+        - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
+        - sh install.sh -b ./bin
+        - ./bin/up version
       deploy:
         provider: script
         script: ./bin/up deploy production -v
         skip_cleanup: true
       after_deploy:
-        - npx lambda-prune
+        - lambda-prune

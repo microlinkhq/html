@@ -4,6 +4,17 @@
     "command": "node index.js",
     "timeout": 25
   },
+  "hooks": {
+    "build": [
+      "npx untracked | tee .upignore"
+    ],
+    "postdeploy": [
+      "npx lambda-prune"
+    ],
+    "clean": [
+      "rm -f .upignore"
+    ]
+  },
   "environment": {
     "NODE_ENV": "production",
     "TZ": "UTC"

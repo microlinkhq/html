@@ -51,7 +51,6 @@
     "git-authors-cli": "latest",
     "git-dirty": "latest",
     "husky": "latest",
-    "lambda-prune": "latest",
     "lint-staged": "latest",
     "micro-dev": "latest",
     "npm-check-updates": "latest",
@@ -59,8 +58,7 @@
     "puppeteer": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
-    "untracked": "latest"
+    "standard-version": "latest"
   },
   "engines": {
     "node": "8.10"

@@ -24,7 +24,6 @@ jobs:
       script:
         - npm run release
       before_deploy:
-        - untracked | tee .upignore
         - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
         - sh install.sh -b ./bin
         - ./bin/up version
@@ -32,5 +31,3 @@ jobs:
         provider: script
         script: ./bin/up deploy production -v
         skip_cleanup: true
-      after_deploy:
-        - lambda-prune

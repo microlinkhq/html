@@ -30,7 +30,7 @@ jobs:
         - npm run release
       deploy:
         provider: script
-        script: ./bin/up
+        script: ./bin/up deploy production -v
         skip_cleanup: true
       after_deploy:
         - npx lambda-prune

@@ -4,14 +4,6 @@
     "command": "node index.js",
     "timeout": 25
   },
-  "hooks": {
-    "build": [
-      "untracked > .upignore"
-    ],
-    "clean": [
-      "rm -f .upignore"
-    ]
-  },
   "environment": {
     "NODE_ENV": "production",
     "TZ": "UTC"

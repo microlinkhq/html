@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "10"
+  - "8"
 
 stages:
   - Test
@@ -11,9 +11,6 @@ stages:
 install:
   - npm config set package-lock false
   - npm install
-  - rm -rf node_modules/sharp
-  - npm install sharp --arch=x64 --platform=linux --target=10.15.0 --force
-  - npm ls
 
 jobs:
   include:
@@ -31,5 +28,5 @@ jobs:
         - sh install.sh -b ./bin
       deploy:
         provider: script
-        script: ./bin/up deploy production -v
+        script: ./bin/up deploy production
         skip_cleanup: true

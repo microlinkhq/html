@@ -10,7 +10,7 @@ stages:
 
 install:
   - npm config set package-lock false
-  - npm install --arch=x64 --platform=linux --target=8.10.0
+  - npm install
   - npm ls
 
 jobs:
@@ -25,6 +25,8 @@ jobs:
       script:
         - npm run release
       before_deploy:
+        - rm -rf node_modules/sharp
+        - npm install --arch=x64 --platform=linux --target=10.15.0 sharp
         - curl -sfLO https://raw.githubusercontent.com/apex/up/master/install.sh
         - sh install.sh -b ./bin
       deploy:

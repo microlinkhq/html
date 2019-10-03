@@ -5,8 +5,11 @@
     "timeout": 25
   },
   "hooks": {
-    "build": [
+    "predeploy": [
       "untracked > .upignore"
+    ],
+    "postdeploy": [
+      "npx lambda-prune"
     ],
     "clean": [
       "rm -f .upignore"

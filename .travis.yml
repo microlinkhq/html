@@ -32,5 +32,3 @@ jobs:
         provider: script
         script: ./bin/up
         skip_cleanup: true
-      after_deploy:
-        - npx lambda-prune

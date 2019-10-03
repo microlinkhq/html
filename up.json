@@ -1,5 +1,9 @@
 {
   "name": "microlink-html",
+  "proxy": {
+    "command": "node index.js",
+    "timeout": 25
+  },
   "hooks": {
     "build": [
       "untracked > .upignore"
@@ -7,9 +11,6 @@
     "clean": [
       "rm -f .upignore"
     ]
-  },
-  "proxy": {
-    "command": "./node_modules/.bin/micro -l tcp://0.0.0.0:$PORT"
   },
   "environment": {
     "NODE_ENV": "production",

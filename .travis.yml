@@ -29,7 +29,7 @@ jobs:
       script:
         - npm run release
       before_deploy:
-        - npx untracked > .upignore
+        - npx untracked | tee .upignore
       deploy:
         provider: script
         script: ./bin/up deploy production -v

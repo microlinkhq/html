@@ -8,9 +8,6 @@
     "build": [
       "untracked > .upignore"
     ],
-    "postdeploy": [
-      "npx lambda-prune"
-    ],
     "clean": [
       "rm -f .upignore"
     ]

@@ -25,7 +25,7 @@
   "dependencies": {
     "beauty-error": "~1.2.2",
     "browserless": "~5.15.0",
-    "cacheable-response": "~1.7.3",
+    "cacheable-response": "~1.8.0",
     "chrome-aws-lambda": "~1.20.0",
     "header-case": "~1.0.1",
     "helmet": "~3.21.1",

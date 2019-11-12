@@ -2,7 +2,7 @@
   "name": "microlink-html",
   "description": "Get HTML from any URL.",
   "homepage": "https://github.com/microlinkhq/html",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",

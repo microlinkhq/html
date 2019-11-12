@@ -20,7 +20,7 @@
     "TZ": "UTC"
   },
   "lambda": {
-    "runtime": "nodejs8.10",
+    "runtime": "nodejs10.x",
     "accelerate": true
   },
   "regions": [

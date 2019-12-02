@@ -27,7 +27,7 @@
     "browserless": "~5.18.1",
     "cacheable-response": "~1.9.0",
     "chrome-aws-lambda": "~1.20.0",
-    "header-case": "~1.0.1",
+    "header-case": "~2.0.0",
     "helmet": "~3.21.1",
     "html-get": "~2.2.26",
     "http-status": "~1.4.0",
